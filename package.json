@@ -1,0 +1,45 @@
+{
+  "name": "backend",
+  "version": "1.0.1",
+  "main": "dist/server.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --transpile-only src/server.ts",
+    "start": "node dist/server.js",
+    "build": "tsc -p tsconfig.json",
+    "run:tunel": "ssh asilveira@10.3.0.5 -i \"C:\\Users\\ander\\OneDrive\\Área de Trabalho\\Documentos\\03 - FULLSTECK\\05 - SSH\\id_rsa\" -L 15432:dev-forceflow-db.postgres.database.azure.com:5432",
+    "migration:update": "mikro-orm schema:update --config src/mikro-orm.config.ts --run",
+    "migration:create": "npx mikro-orm migration:create --config src/mikro-orm.config.ts",
+    "migration:up": "npx mikro-orm migration:up --config src/mikro-orm.config.ts",
+    "migration:down": "npx mikro-orm migration:down --config src/mikro-orm.config.ts"
+  },
+  "devDependencies": {
+    "@mikro-orm/cli": "^6.3.13",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.0.3"
+  },
+  "dependencies": {
+    "@mikro-orm/core": "^6.3.13",
+    "@mikro-orm/migrations": "^6.3.13",
+    "@mikro-orm/postgresql": "^6.3.13",
+    "@mikro-orm/reflection": "^6.3.13",
+    "@types/express-serve-static-core": "^4.19.0",
+    "@types/morgan": "^1.9.9",
+    "axios": "^1.7.4",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "cors": "^2.8.5",
+    "csvtojson": "^2.0.10",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "fastify": "^5.1.0",
+    "morgan": "^1.10.0",
+    "pg": "^8.13.1",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.20",
+    "uuid": "^11.0.2"
+  }
+}
